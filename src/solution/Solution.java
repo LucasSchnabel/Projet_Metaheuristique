@@ -36,9 +36,10 @@ public class Solution {
 	
 	public int evaluation(){
 		int[] pers = new int[this.nbPers];
-		for(int i = 0;i<this.sol.length && this.sol[i] != -1;i++){
-			pers[this.sol[i]]+=this.tab[this.sol[i]][i];
-			i++;
+		for(int i = 0;i<this.sol.length;i++){
+			if(this.sol[i]!=-1){
+				pers[this.sol[i]]+=this.tab[this.sol[i]][i];
+			}
 		}
 		int max = 0;
 		for(int i = 0;i<this.nbPers;i++){
