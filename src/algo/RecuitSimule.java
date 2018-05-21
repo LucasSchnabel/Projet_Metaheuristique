@@ -1,8 +1,6 @@
 package algo;
 
 import generic.AlgorithmeAbstract;
-import generic.ProblemeAbstract;
-import generic.SolutionAbstract;
 import solution.Solution;
 
 import java.util.ArrayList;
@@ -50,9 +48,8 @@ public class RecuitSimule extends AlgorithmeAbstract {
 	 * @param temperatuer
 	 *            temperature initiale
 	 */
-	public RecuitSimule(ProblemeAbstract probleme,
-			Solution solutionInitiale, double temperature) {
-		super(probleme, solutionInitiale);
+	public RecuitSimule(Solution solutionInitiale, double temperature) {
+		super(solutionInitiale);
 		this.temperature = temperature;
 	}
 
@@ -79,12 +76,13 @@ public class RecuitSimule extends AlgorithmeAbstract {
 			fin = this.estAcceptee(solHasard);
 			compteurAcceptation++;
 		}
-		this.solutionEnCours = solHasard;
-		if (this.problemeATraiter.evaluation(solutionEnCours) == this.problemeATraiter
-				.evaluation(solHasard)) {
+		if (solutionEnCours.evaluation() == solHasard.evaluation()) {
+			this.solutionEnCours = solHasard;
 			return true;
-		} else
+		} else {
+			this.solutionEnCours = solHasard;
 			return false;
+		}
 	}
 
 	private Solution choisirHasard() {
@@ -111,9 +109,8 @@ public class RecuitSimule extends AlgorithmeAbstract {
 	private boolean estAcceptee(Solution solution) {
 		// a completer en utilisant probaMetropolis
 		boolean accept = false;
-		double evaluation = this.problemeATraiter.evaluation(solution);
-		double evaluationEnCours = this.problemeATraiter
-				.evaluation(solutionEnCours);
+		double evaluation = solution.evaluation();
+		double evaluationEnCours = this.solutionEnCours.evaluation();
 		if (evaluation < evaluationEnCours) {
 			accept = true;
 		} else {
