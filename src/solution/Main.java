@@ -47,7 +47,7 @@ public class Main {
 		
 		RecuitSimule r = new RecuitSimule(initiale, 1000);
 		
-		for (int i = 0; i < 100; i++) {
+		for (int i = 0; i < nbIteration; i++) {
 			r.ameliorerSolution();
 		}
 		System.out.println("Solution amélioré avec recuit simulé :");
@@ -78,7 +78,7 @@ public class Main {
 		
 		RecuitSimule r = new RecuitSimule(initiale, 1000);
 		
-		for (int i = 0; i < 100; i++) {
+		for (int i = 0; i < nbIteration; i++) {
 			r.ameliorerSolution();
 		}
 		System.out.println("Solution amélioré avec recuit simulé :");
@@ -109,7 +109,7 @@ public class Main {
 		
 		RecuitSimule r = new RecuitSimule(initiale, 1000);
 		
-		for (int i = 0; i < 100; i++) {
+		for (int i = 0; i < nbIteration; i++) {
 			r.ameliorerSolution();
 		}
 		System.out.println("Solution amélioré avec recuit simulé :");
