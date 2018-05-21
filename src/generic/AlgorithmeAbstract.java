@@ -2,8 +2,6 @@ package generic;
 
 import algo.Greedy;
 import algo.RecuitSimule;
-import algo.Tabou;
-import probleme.quatreCouleurs.TabouFiltreAttribut;
 
 /**
  * algorithme abstrait
@@ -62,9 +60,7 @@ public abstract class AlgorithmeAbstract {
 			return new Greedy(probleme, solutionInitiale);
 		case "recuit":
 			return new RecuitSimule(probleme, solutionInitiale, 1000);
-		case "taboue":
-			return new Tabou(probleme, solutionInitiale, new TabouFiltreAttribut(20));
-		}
+
 		return (null);
 	}
 
