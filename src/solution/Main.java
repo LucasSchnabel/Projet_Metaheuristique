@@ -26,7 +26,7 @@ public class Main {
 	
 	public static void testSimple(){
 		System.out.println("Début du test simple :");
-		
+		int nbIteration = 2500;
 		int nbPers = 4; 
 		int nbTache = 5;
 		int[][] tab = Tableau.getTab(nbPers, nbTache);
@@ -59,6 +59,7 @@ public class Main {
 		System.out.println("Début du test moins simple :");
 		int nbPers = 6; 
 		int nbTache = 10;
+		int nbIteration = 2500;
 		int[][] tab = Tableau.getTab(nbPers, nbTache);
 		afficherTab(tab);
 		Solution initiale = new Solution(nbTache,nbPers,tab);
@@ -89,6 +90,7 @@ public class Main {
 		System.out.println("Début du test complexe :");
 		int nbPers = 10; 
 		int nbTache = 20;
+		int nbIteration = 2500;
 		int[][] tab = Tableau.getTab(nbPers, nbTache);
 		afficherTab(tab);
 		Solution initiale = new Solution(nbTache,nbPers,tab);
