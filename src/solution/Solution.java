@@ -1,4 +1,7 @@
 package solution;
+
+import java.util.ArrayList;
+
 public class Solution {
 
 	private int nbPers;
@@ -78,7 +81,7 @@ public class Solution {
 	}
 	
 	public ArrayList<Solution> retourneVoisinage(){
-		ArrayList<Solution> res = new ArrayLsit<Solution>();
+		ArrayList<Solution> res = new ArrayList<Solution>();
 		for(Solution s:this.getVoisins()){
 			res.add(s);
 		}

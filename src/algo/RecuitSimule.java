@@ -3,6 +3,7 @@ package algo;
 import generic.AlgorithmeAbstract;
 import generic.ProblemeAbstract;
 import generic.SolutionAbstract;
+import solution.Solution;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -2,6 +2,7 @@ package generic;
 
 import algo.Greedy;
 import algo.RecuitSimule;
+import solution.Solution;
 
 /**
  * algorithme abstrait
