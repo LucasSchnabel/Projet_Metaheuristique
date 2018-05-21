@@ -3,6 +3,7 @@ package algo;
 import generic.AlgorithmeAbstract;
 import generic.ProblemeAbstract;
 import generic.SolutionAbstract;
+import solution.Solution;
 
 import java.util.ArrayList;
 
@@ -33,7 +34,7 @@ public class Greedy extends AlgorithmeAbstract {
 		boolean res = false;
 		//on construit le voisinage
 		ArrayList<Solution> voisinage = (ArrayList<Solution>) this.solutionEnCours.retourneVoisinage();
-		//on selectionne une valeur
+		//on selectionne une valeur 
 		Solution voisin = this.solutionEnCours;
 		double min = this.valeur();
 		for(Solution sol : voisinage){
