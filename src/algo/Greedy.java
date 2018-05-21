@@ -1,11 +1,9 @@
 package algo;
 
-import generic.AlgorithmeAbstract;
-import generic.ProblemeAbstract;
-import generic.SolutionAbstract;
-import solution.Solution;
-
 import java.util.ArrayList;
+
+import generic.AlgorithmeAbstract;
+import solution.Solution;
 
 /**
  * classe representant un algorithme de type greedy
@@ -23,8 +21,8 @@ public class Greedy extends AlgorithmeAbstract {
 	 * @param initiale
 	 *            la solution initiale a modifier
 	 */
-	public Greedy(ProblemeAbstract probleme, Solution initiale) {
-		super(probleme, initiale);
+	public Greedy( Solution initiale) {
+		super( initiale);
 	}
 
 	/**
@@ -38,19 +36,40 @@ public class Greedy extends AlgorithmeAbstract {
 		Solution voisin = this.solutionEnCours;
 		double min = this.valeur();
 		for(Solution sol : voisinage){
-			double valSolK = this.problemeATraiter.evaluation(sol); 
+			double valSolK = sol.evaluation(); 
 			if(valSolK < min){
 				voisin = sol;
 				min = valSolK;
 			}
 		}
 		//on developpe un noeud suivant
-		if(min == this.problemeATraiter.evaluation(this.solutionEnCours)){
+		if(min == this.solutionEnCours.evaluation()){
 			res = true;
 		}
 		this.solutionEnCours = voisin;
 		// on s'arrete si la solution ne s'ameliore plus
 		return res;
+	}
+	
+	/**
+	 * permet de trouver une solutionselon une approche gloutonne
+	 */
+	public void trouverSolution(){
+		ArrayList<Solution> voisins;
+		Solution tmp;int val;
+		while(!this.solutionEnCours.estComplete()){
+			voisins = this.solutionEnCours.retourneVoisinage();
+			tmp = voisins.get(0);
+			val = tmp.evaluation();
+			for(Solution s :voisins){
+				int valS = s.evaluation();
+				if(valS<val){
+					tmp = s;
+					val = valS;
+				}
+			}
+			this.solutionEnCours = tmp;
+		}
 	}
 
 }

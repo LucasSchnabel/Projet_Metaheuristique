@@ -23,6 +23,17 @@ public class Solution {
 		}
 	}
 	
+	public boolean estComplete(){
+		boolean res = true;
+		for(int i = 0;i<this.sol.length;i++){
+			if(this.sol[i]==-1){
+				res = false;
+				break;
+			}
+		}
+		return res;
+	}
+	
 	public int evaluation(){
 		int[] pers = new int[this.nbPers];
 		for(int i = 0;i<this.sol.length && this.sol[i] != -1;i++){
@@ -35,7 +46,6 @@ public class Solution {
 				max = pers[i];
 			}
 		}
-		
 		return max;
 	}
 	

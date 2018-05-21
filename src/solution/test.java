@@ -1,25 +1,23 @@
 package solution;
+
+import algo.Greedy;
+
 public class test {
 
 	public static void main(String[] args) {
-		int nbPers = 4;
-		int nbTaches = 4;
 		Tableau t = new Tableau();
-		int[][] tab = t.getTab(nbPers, nbTaches);
-		Solution s = new Solution(4,4,tab);
-		System.out.println(s);
+		int nbPers = 4; 
+		int nbTache = 4;
+		int[][] tab = t.getTab(nbPers, nbTache);
 		
-		Solution tmp = s.getVoisins()[0];
-		System.out.println(tmp);
-		tmp = tmp.getVoisins()[0];
-		System.out.println(tmp);
-		tmp = tmp.getVoisins()[0];
-		System.out.println(tmp);
-		tmp = tmp.getVoisins()[0];
-		System.out.println(tmp);
-		for(Solution sol :tmp.getVoisins()){
-			System.out.println(sol);
-		}
+		Solution initiale = new Solution(nbTache,nbPers,tab);
+		Greedy g = new Greedy(initiale);
+		
+		g.trouverSolution();
+		
+		System.out.println(g.getSolutionEnCours().evaluation());
+		
+		while(!g.ameliorerSolution()){System.out.println(g.getSolutionEnCours());}
 
 	}
 

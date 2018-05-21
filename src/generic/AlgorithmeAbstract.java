@@ -55,7 +55,7 @@ public abstract class AlgorithmeAbstract {
 			return new Greedy(solutionInitiale);
 		case "recuit":
 			return new RecuitSimule(solutionInitiale, 1000);
-
+		}
 		return (null);
 	}
 
@@ -74,7 +74,7 @@ public abstract class AlgorithmeAbstract {
 	 * @return par defaut la valeur
 	 */
 	public String log() {
-		return "" + problemeATraiter.evaluation(getSolutionEnCours());
+		return "" + this.solutionEnCours.evaluation();
 	}
 
 	public Solution getSolutionEnCours() {
