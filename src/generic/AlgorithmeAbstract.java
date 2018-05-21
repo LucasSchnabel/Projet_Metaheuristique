@@ -20,11 +20,6 @@ public abstract class AlgorithmeAbstract {
 	protected Solution solutionEnCours;
 
 	/**
-	 * probleme sur lequel appliquer la solution
-	 */
-	protected ProblemeAbstract problemeATraiter;
-
-	/**
 	 * construit un algorithme à partir d'une solution initiale
 	 * 
 	 * @param probleme
@@ -32,9 +27,8 @@ public abstract class AlgorithmeAbstract {
 	 * @param solutionInitiale
 	 *            solution initiale
 	 */
-	public AlgorithmeAbstract(ProblemeAbstract probleme, Solution solutionInitiale) {
+	public AlgorithmeAbstract(Solution solutionInitiale) {
 		this.solutionEnCours = solutionInitiale;
-		this.problemeATraiter = probleme;
 	}
 
 	/**
@@ -54,12 +48,12 @@ public abstract class AlgorithmeAbstract {
 	 * @param nom
 	 *            le nom de l'algo
 	 */
-	public static AlgorithmeAbstract getAlgo(String nom, ProblemeAbstract probleme, Solution solutionInitiale) {
+	public static AlgorithmeAbstract getAlgo(String nom, Solution solutionInitiale) {
 		switch (nom) {
 		case "greedy":
-			return new Greedy(probleme, solutionInitiale);
+			return new Greedy(solutionInitiale);
 		case "recuit":
-			return new RecuitSimule(probleme, solutionInitiale, 1000);
+			return new RecuitSimule(solutionInitiale, 1000);
 
 		return (null);
 	}
@@ -70,7 +64,7 @@ public abstract class AlgorithmeAbstract {
 	 * @return valeur de s selon probleme pb
 	 */
 	public double valeur() {
-		return problemeATraiter.evaluation(getSolutionEnCours());
+		return this.solutionEnCours.evaluation();
 	}
 
 	/**
