@@ -1,9 +1,9 @@
 package generic;
 
-import probleme.quatreCouleurs.TabouFiltreAttribut;
 import algo.Greedy;
 import algo.RecuitSimule;
 import algo.Tabou;
+import probleme.quatreCouleurs.TabouFiltreAttribut;
 
 /**
  * algorithme abstrait
@@ -19,7 +19,7 @@ public abstract class AlgorithmeAbstract {
 	/**
 	 * solution en cours à modifier au fur et mesure de l'algorithme
 	 */
-	protected SolutionAbstract solutionEnCours;
+	protected Solution solutionEnCours;
 
 	/**
 	 * probleme sur lequel appliquer la solution
@@ -34,7 +34,7 @@ public abstract class AlgorithmeAbstract {
 	 * @param solutionInitiale
 	 *            solution initiale
 	 */
-	public AlgorithmeAbstract(ProblemeAbstract probleme, SolutionAbstract solutionInitiale) {
+	public AlgorithmeAbstract(ProblemeAbstract probleme, Solution solutionInitiale) {
 		this.solutionEnCours = solutionInitiale;
 		this.problemeATraiter = probleme;
 	}
@@ -56,7 +56,7 @@ public abstract class AlgorithmeAbstract {
 	 * @param nom
 	 *            le nom de l'algo
 	 */
-	public static AlgorithmeAbstract getAlgo(String nom, ProblemeAbstract probleme, SolutionAbstract solutionInitiale) {
+	public static AlgorithmeAbstract getAlgo(String nom, ProblemeAbstract probleme, Solution solutionInitiale) {
 		switch (nom) {
 		case "greedy":
 			return new Greedy(probleme, solutionInitiale);
@@ -86,7 +86,7 @@ public abstract class AlgorithmeAbstract {
 		return "" + problemeATraiter.evaluation(getSolutionEnCours());
 	}
 
-	public SolutionAbstract getSolutionEnCours() {
+	public Solution getSolutionEnCours() {
 		return solutionEnCours;
 	}
 

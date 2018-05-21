@@ -1,6 +1,5 @@
 package algo;
 
-import generic.SolutionAbstract;
 
 /**
  * classe Abstraite qui a pour but de gérer le filtrage avec une liste taboue
@@ -17,7 +16,7 @@ public abstract class TabouFiltreAbstract {
 	 *            la solution a tester
 	 * @return acceptation ou non
 	 */
-	public abstract boolean accepter(SolutionAbstract s);
+	public abstract boolean accepter(Solution s);
 
 	/**
 	 * methode qui met à jour les criteres taboue en fonction de la nouvelle
@@ -27,7 +26,7 @@ public abstract class TabouFiltreAbstract {
 	 *            la solution retenue
 	 * 
 	 */
-	public abstract void update(SolutionAbstract s);
+	public abstract void update(Solution s);
 
 	/**
 	 * affiche de l'information sur le filtre

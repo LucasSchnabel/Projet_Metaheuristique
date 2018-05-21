@@ -50,7 +50,7 @@ public class RecuitSimule extends AlgorithmeAbstract {
 	 *            temperature initiale
 	 */
 	public RecuitSimule(ProblemeAbstract probleme,
-			SolutionAbstract solutionInitiale, double temperature) {
+			Solution solutionInitiale, double temperature) {
 		super(probleme, solutionInitiale);
 		this.temperature = temperature;
 	}
@@ -69,7 +69,7 @@ public class RecuitSimule extends AlgorithmeAbstract {
 		// a completer en utilisant les méthodes
 		int compteurAcceptation = 0;
 		boolean fin = false;
-		SolutionAbstract solHasard = this.solutionEnCours;
+		Solution solHasard = this.solutionEnCours;
 		// on limite le nombre de tirages non accepte a un nombre maximal (1000)
 		while (compteurAcceptation < 1000 && !fin) {
 			// * choisirHasard
@@ -86,8 +86,8 @@ public class RecuitSimule extends AlgorithmeAbstract {
 			return false;
 	}
 
-	private SolutionAbstract choisirHasard() {
-		ArrayList<SolutionAbstract> listVoisin = (ArrayList<SolutionAbstract>) this.solutionEnCours
+	private Solution choisirHasard() {
+		ArrayList<Solution> listVoisin = (ArrayList<Solution>) this.solutionEnCours
 				.retourneVoisinage();
 		int indexHasard = new Random().nextInt(listVoisin.size());
 		// maj temp
@@ -107,7 +107,7 @@ public class RecuitSimule extends AlgorithmeAbstract {
 	 *            solution à comparer à la solution actuelle
 	 * @return booleen qui valide ou non
 	 */
-	private boolean estAcceptee(SolutionAbstract solution) {
+	private boolean estAcceptee(Solution solution) {
 		// a completer en utilisant probaMetropolis
 		boolean accept = false;
 		double evaluation = this.problemeATraiter.evaluation(solution);

@@ -40,7 +40,7 @@ public class Tabou extends AlgorithmeAbstract {
 	 * @param taboue
 	 *            liste taboue utilisee pour la recherche taboue
 	 */
-	public Tabou(ProblemeAbstract probleme, SolutionAbstract solutionInitiale, TabouFiltreAbstract taboue) {
+	public Tabou(ProblemeAbstract probleme, Solution solutionInitiale, TabouFiltreAbstract taboue) {
 		super(probleme, solutionInitiale);
 		this.tabou = taboue;
 	}
@@ -53,9 +53,9 @@ public class Tabou extends AlgorithmeAbstract {
 
 		// a chaque iteration
 		// on recupere les voisins 
-		ArrayList<SolutionAbstract> voisinage = (ArrayList<SolutionAbstract>) this.solutionEnCours.retourneVoisinage();
+		ArrayList<Solution> voisinage = (ArrayList<Solution>) this.solutionEnCours.retourneVoisinage();
 		//et on filtre par le filtre tabou
-		ArrayList<SolutionAbstract> autorisations = this.filtrer(voisinage);
+		ArrayList<Solution> autorisations = this.filtrer(voisinage);
 		// on levera une Error en cas d'impossibilité (quand la liste taboue
 		// bloque la recherche de la solution)
 		if(autorisations.size() == 0) {
@@ -80,10 +80,10 @@ public class Tabou extends AlgorithmeAbstract {
 	 * 
 	 * @return meilleure solution
 	 */
-	private SolutionAbstract chercherMeilleureSolution(List<SolutionAbstract> solutionsVoisines) {
+	private Solution chercherMeilleureSolution(List<Solution> solutionsVoisines) {
 		double min = this.problemeATraiter.evaluation(solutionEnCours);
-		SolutionAbstract meilleure = this.solutionEnCours;
-		for(SolutionAbstract s : solutionsVoisines) {
+		Solution meilleure = this.solutionEnCours;
+		for(Solution s : solutionsVoisines) {
 			double evalCourante = this.problemeATraiter.evaluation(s);
 			if(evalCourante < min) {
 				min = evalCourante;
@@ -101,9 +101,9 @@ public class Tabou extends AlgorithmeAbstract {
 	 *            liste de solutions à filtrer, parametre modifié par la méthode
 	 */
 
-	private ArrayList<SolutionAbstract> filtrer(List<SolutionAbstract> solutionsVoisines) {
-		ArrayList<SolutionAbstract> autorisations = new ArrayList<SolutionAbstract>();
-		for(SolutionAbstract s : solutionsVoisines) {
+	private ArrayList<Solution> filtrer(List<Solution> solutionsVoisines) {
+		ArrayList<Solution> autorisations = new ArrayList<Solution>();
+		for(Solution s : solutionsVoisines) {
 			if(this.tabou.accepter(s)) {
 				autorisations.add(s);
 			}

@@ -22,7 +22,7 @@ public class Greedy extends AlgorithmeAbstract {
 	 * @param initiale
 	 *            la solution initiale a modifier
 	 */
-	public Greedy(ProblemeAbstract probleme, SolutionAbstract initiale) {
+	public Greedy(ProblemeAbstract probleme, Solution initiale) {
 		super(probleme, initiale);
 	}
 
@@ -32,11 +32,11 @@ public class Greedy extends AlgorithmeAbstract {
 	public boolean ameliorerSolution() {
 		boolean res = false;
 		//on construit le voisinage
-		ArrayList<SolutionAbstract> voisinage = (ArrayList<SolutionAbstract>) this.solutionEnCours.retourneVoisinage();
+		ArrayList<Solution> voisinage = (ArrayList<SolutionAbstract>) this.solutionEnCours.retourneVoisinage();
 		//on selectionne une valeur
-		SolutionAbstract voisin = this.solutionEnCours;
+		Solution voisin = this.solutionEnCours;
 		double min = this.problemeATraiter.evaluation(this.solutionEnCours);
-		for(SolutionAbstract sol : voisinage){
+		for(Solution sol : voisinage){
 			double valSolK = this.problemeATraiter.evaluation(sol); 
 			if(valSolK < min){
 				voisin = sol;
