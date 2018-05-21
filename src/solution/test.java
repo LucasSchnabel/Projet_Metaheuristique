@@ -10,6 +10,7 @@ public class test {
 		int nbPers = 10; 
 		int nbTache = 10;
 		int[][] tab = t.getTab(nbPers, nbTache);
+		int nbIteration = 2500;
 		
 		Solution initiale = new Solution(nbTache,nbPers,tab);
 		Greedy g = new Greedy(initiale);
@@ -23,11 +24,11 @@ public class test {
 		System.out.println();
 		while(!g.ameliorerSolution()){System.out.println(g.getSolutionEnCours());}
 		System.out.println("Recuit");
-		for (int i = 0; i < 100; i++) {
+		for (int i = 0; i < nbIteration; i++) {
 			r.ameliorerSolution();
 		}
 		System.out.println(r.getSolutionEnCours());
-
+		System.err.println(r.getSolutionEnCours().evaluation());
 	}
 
 }
